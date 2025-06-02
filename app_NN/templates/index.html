@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Exam Score Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Predict Exam Score</h2>
+    <form method="POST">
+        <label for="age">Age (17 – 24):</label>
+        <input type="number" name="age" id="age" min="17" max="24" step="1" required>
+
+        <label for="study_hours_per_day">Study Hours per Day (0.0 – 8.3):</label>
+        <input type="number" name="study_hours_per_day" id="study_hours_per_day" min="0.0" max="8.3" step="0.1" required>
+
+        <label for="social_media_hours">Social Media Hours (0.0 – 7.2):</label>
+        <input type="number" name="social_media_hours" id="social_media_hours" min="0.0" max="7.2" step="0.1" required>
+
+        <label for="netflix_hours">Netflix Hours (0.0 – 5.4):</label>
+        <input type="number" name="netflix_hours" id="netflix_hours" min="0.0" max="5.4" step="0.1" required>
+
+        <label for="attendance_percentage">Attendance Percentage (56.0 – 100.0):</label>
+        <input type="number" name="attendance_percentage" id="attendance_percentage" min="56.0" max="100.0" step="0.1" required>
+
+        <label for="sleep_hours">Sleep Hours (3.2 – 10.0):</label>
+        <input type="number" name="sleep_hours" id="sleep_hours" min="3.2" max="10.0" step="0.1" required>
+
+        <label for="exercise_frequency">Exercise Frequency (0 – 6):</label>
+        <input type="number" name="exercise_frequency" id="exercise_frequency" min="0" max="6" step="1" required>
+
+        <label for="mental_health_rating">Mental Health Rating (1 – 10):</label>
+        <input type="number" name="mental_health_rating" id="mental_health_rating" min="1" max="10" step="1" required>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="part_time_job">Part-Time Job:</label>
+        <select name="part_time_job" id="part_time_job" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="diet_quality">Diet Quality:</label>
+        <select name="diet_quality" id="diet_quality" required>
+            <option value="Fair">Fair</option>
+            <option value="Good">Good</option>
+            <option value="Poor">Poor</option>
+        </select>
+
+        <label for="parental_education_level">Parental Education Level:</label>
+        <select name="parental_education_level" id="parental_education_level" required>
+            <option value="none">None</option>
+            <option value="highschool">High School</option>
+            <option value="bachelors">Bachelor's</option>
+            <option value="masters">Master's</option>
+        </select>
+
+        <label for="internet_quality">Internet Quality:</label>
+        <select name="internet_quality" id="internet_quality" required>
+            <option value="Average">Average</option>
+            <option value="Poor">Poor</option>
+            <option value="Good">Good</option>
+        </select>
+
+        <label for="extracurricular_participation">Extracurricular Participation:</label>
+        <select name="extracurricular_participation" id="extracurricular_participation" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction is not none %}
+    <div class="result">
+        <strong>Predicted Exam Score:</strong> {{ prediction }}<br>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
