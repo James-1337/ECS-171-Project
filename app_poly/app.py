@@ -14,11 +14,22 @@ TEMPLATE = open("templates/index.html").read()
 def predict():
     prediction = None
     if request.method == "POST":
-        # Request study hours and mental health rating and pad everything else with 0
-        study_hours = float(request.form["study_hours"])
-        mental_rating = float(request.form["mental_rating"])
-        x = np.array([[study_hours, 0, 0, 0, 0, 0, mental_rating]])
-        
+        # Map diet quality to numerical values
+        diet_quality_map = {"Poor": 0, "Fair": 1, "Good": 2}
+
+        # Request every feature
+        features = [
+            float(request.form["study_hours_per_day"]),
+            float(request.form["social_media_hours"]),
+            float(request.form["netflix_hours"]),
+            float(request.form["attendance_percentage"]),
+            float(request.form["sleep_hours"]),
+            float(request.form["exercise_frequency"]),
+            float(request.form["mental_health_rating"]),
+            diet_quality_map[request.form["diet_quality"]]
+        ]
+        x = np.array([features])
+
         x_scaled = scaler.transform(x)
         x_poly = poly.transform(x_scaled)
         y_pred = model.predict(x_poly)[0]
