@@ -24,9 +24,9 @@ def predict():
             float(request.form["netflix_hours"]),
             float(request.form["attendance_percentage"]),
             float(request.form["sleep_hours"]),
+            diet_quality_map[request.form["diet_quality"]],
             float(request.form["exercise_frequency"]),
-            float(request.form["mental_health_rating"]),
-            diet_quality_map[request.form["diet_quality"]]
+            float(request.form["mental_health_rating"])
         ]
         x = np.array([features])
 

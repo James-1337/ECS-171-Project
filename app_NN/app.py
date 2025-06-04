@@ -39,7 +39,6 @@ feature_names = num_cols + cat_cols
 @app.route('/', methods=['GET', 'POST'])
 def predict():
     prediction = None
-    classification = None
 
     if request.method == 'POST':
         try:
@@ -82,7 +81,7 @@ def predict():
         except Exception as e:
             prediction = f"Error: {e}"
 
-    return render_template('index.html', prediction=prediction, classification=classification)
+    return render_template('index.html', prediction=prediction)
 
 if __name__ == '__main__':
     app.run(debug=True)
