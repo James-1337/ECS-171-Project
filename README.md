@@ -16,7 +16,8 @@ Problem Statement: Academic success is not solely dependent on intelligence. Lif
 - Compare model performance across several regression-based approaches.
 - Interpret model outputs to identify high-impact predictors (e.g., sleep, study time, mental health).
 - Evaluate metrics to identify the most suitable model for deployment.
-- 
+
+  
 We used four ML models for comparative analysis:
 1. Linear Regression (Nico)
 2. Polynomial Regression (Madeleine)
