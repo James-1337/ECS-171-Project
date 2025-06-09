@@ -42,3 +42,5 @@ Outputs:
 - Write-up of the project
 - Web Interface
 - Demo Video - 5 min
+
+To run the web application, open app_poly in the command terminal and run python3 app.py. Then, open the locally hosted link that it gives you in a browser.
